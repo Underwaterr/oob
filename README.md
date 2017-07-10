@@ -23,7 +23,7 @@ Initialize git project
 git init
 ```
 
-Deal with .DS_Store >:(
+Deal with .DS_Store >:( <br>
 Make a `.gitignore` file and write to it
 ```bash
 echo ".DS_Store" >> .gitignore
@@ -34,7 +34,7 @@ Make this readme, too!
 touch README.md
 ```
 
-Git commit, etc...
+Git commit, etc...<br>
 (Note the space after the exclamation mark, [here's why](https://askubuntu.com/a/434840))
 ```bash
 git add . 
