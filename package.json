@@ -1,0 +1,19 @@
+{
+  "name": "oob",
+  "version": "0.0.1",
+  "description": "Festival management software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Underwaterr/oob.git"
+  },
+  "author": "Tyler Lane <gmail.com> (cat-toast.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Underwaterr/oob/issues"
+  },
+  "homepage": "https://github.com/Underwaterr/oob#readme"
+}

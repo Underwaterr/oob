@@ -46,3 +46,9 @@ If you're having an issue with needing to commit from a specific account...
 git push 'https://[username]:[password]@github.com/underwaterr/oob.git'
 ```
 I actually ended up deleting the other user from the OSX "Keychain Access" app.
+
+Initialize the project with a `package.json` file, via NPM
+```bash
+npm init
+```
+
