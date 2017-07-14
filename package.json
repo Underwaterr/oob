@@ -2,9 +2,10 @@
   "name": "oob",
   "version": "0.0.1",
   "description": "Festival management software",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js --trace-sync-io"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Underwaterr/oob/issues"
   },
-  "homepage": "https://github.com/Underwaterr/oob#readme"
+  "homepage": "https://github.com/Underwaterr/oob#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2"
+  }
 }
