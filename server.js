@@ -8,10 +8,8 @@ app.set('view engine', 'pug')                       // Use PUG as our view engin
 app.use(bodyParser.urlencoded({extended: true}))    // For... parsing?
 app.use(express.static('public'))                   // Static file location
 
-// Homepage GET
-app.get('/', (req, res) => {
-    res.render('index')
-})
+var routes = require('./routes/routes.js')
+app.use('/', routes)
 
 // The 'process.env.PORT' variable lets the port be set by Heroku
 // If not set, use 3000!

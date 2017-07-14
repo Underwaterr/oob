@@ -5,4 +5,8 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
         meta(http-equiv="x-ua-compatible" content="ie=edge")
     body
-        p Hello, world! 
+        p Hello, world!
+        form(action="/" method="POST")
+            label Submit some data 
+            input(type="text" name="data")
+            input(type="submit")
