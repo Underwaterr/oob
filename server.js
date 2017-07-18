@@ -20,5 +20,5 @@ app.listen(port, ()=> { console.log("Server ready! Listening on port " + port) }
 let mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/oob');
 
-const submissionApi = require('./api/submission')
-app.use('/', submissionApi)
+const submissionRouter = require('./api/submission.router')
+app.use('/', submissionRouter)
