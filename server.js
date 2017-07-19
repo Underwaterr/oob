@@ -35,7 +35,7 @@ var jwtCheck = jwt({
 app.use(jwtCheck);
 
 // If we do not get the correct credentials, we’ll return an appropriate message
-app.use(function (error, request, response, next) {
+app.use(function (error, request, response) {
     if (error.name === 'UnauthorizedError') {
         response.status(401).json({message:'Missing or invalid token'})
     }
