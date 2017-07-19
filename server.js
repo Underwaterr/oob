@@ -19,20 +19,10 @@ require('./config/database')
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> { console.log("Server ready! Listening on port " + port) })
 
-
 // Auth0
-const jwt = require('express-jwt')
-var rsaValidation = require('auth0-api-jwt-rsa-validation')
+const jwtCheck = require('./config/authorization')
 
-var jwtCheck = jwt({
-    secret: rsaValidation(),
-    algorithms: ['RS256'],
-    issuer: 'https://underwater.auth0.com/',
-    audience: 'http://oobleck-api.herokuapp.com/'
-})
-
-// Enable the use of the jwtCheck middleware in all of our routes
-app.use(jwtCheck)
+app.use(jwtCheck) // Enable the use of the jwtCheck middleware in all of our routes
 
 // If we do not get the correct credentials, we’ll return an appropriate message
 app.use(function (error, request, response, next) {
