@@ -1,7 +1,23 @@
-var test = require('tape')
-var Submission = require('../api/schema/submission')
+let test            = require('tape'),
+    sinon           = require('sinon'),
+    mongoose        = require('mongoose'),
+    sinonMongoose   = require('sinon-mongoose')
+
+var api = require('../api/submission.api')
 
 test('I am not a clever man', (t)=> {
-    t.pass("YAY!")
+
+    var Submission = mongoose.model('Submission')
+    var SubmissionMock = sinon.mock(Submission)
+
+    SubmissionMock
+        .find()
+        .exec()
+        .then(function(result) {
+            console.log("Result:", result)
+        }
+
+    console.log(thing)
+
     t.end()
 })

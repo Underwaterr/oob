@@ -1,7 +1,7 @@
 var test = require('tape')
-var Submission = require('../api/schema/submission')
+var Submission = require('../api/submission.model')
 
-test('Use submission model', (t)=> {
+test('Create submission model', (t)=> {
     // Arrange
     let submission = new Submission()
     submission.name = "Yay"
@@ -12,7 +12,7 @@ test('Use submission model', (t)=> {
     t.end()
 })
 
-test('Submissiom model throws ValidateError when name not defined', (t)=> {
+test('Create submission model w/o \'name\' throws ValidateError', (t)=> {
     // Arrange
     let submission = new Submission()
     // Act
