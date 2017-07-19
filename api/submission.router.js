@@ -2,6 +2,9 @@ let express = require('express')
 let router = express.Router()
 let api = require('./submission.api')
 
+// Do dis
+// https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
+
 router.post('/submissions', (request, response)=> {
     api.create(request, response)
 })

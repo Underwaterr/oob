@@ -1,7 +1,7 @@
 {
-  "name": "oob",
-  "version": "0.0.1",
-  "description": "Festival management software",
+  "name": "oobleck-api",
+  "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "faucet",
@@ -9,17 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Underwaterr/oob.git"
+    "url": "git+https://github.com/Underwaterr/oobleck-api.git"
   },
   "author": "Tyler Lane <gmail.com> (cat-toast.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Underwaterr/oob/issues"
+    "url": "https://github.com/Underwaterr/oobleck-api/issues"
   },
-  "homepage": "https://github.com/Underwaterr/oob#readme",
+  "homepage": "https://github.com/Underwaterr/oobleck-api#readme",
   "dependencies": {
+    "auth0-api-jwt-rsa-validation": "0.0.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "express-jwt": "^5.3.0",
     "mongoose": "^4.11.3",
     "pug": "^2.0.0-rc.2"
   },

@@ -20,5 +20,27 @@ app.listen(port, ()=> { console.log("Server ready! Listening on port " + port) }
 let mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/oob');
 
+// Auth0
+const jwt = require('express-jwt')
+var rsaValidation = require('auth0-api-jwt-rsa-validation')
+
+var jwtCheck = jwt({
+    secret: rsaValidation(),
+    algorithms: ['RS256'],
+    issuer: 'https://underwater.auth0.com/',
+    audience: 'http://oobleck-api.herokuapp.com/'
+})
+
+// Enable the use of the jwtCheck middleware in all of our routes
+app.use(jwtCheck);
+
+// If we do not get the correct credentials, we’ll return an appropriate message
+app.use(function (error, request, response, next) {
+    if (error.name === 'UnauthorizedError') {
+        response.status(401).json({message:'Missing or invalid token'})
+    }
+})
+
+// More router fun
 const submissionRouter = require('./api/submission.router')
 app.use('/', submissionRouter)
