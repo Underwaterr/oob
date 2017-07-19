@@ -11,14 +11,14 @@ app.use(express.static('public'))                   // Static file location
 const routes = require('./routes/routes')
 app.use('/', routes)
 
+// Mongoosin'
+require('./config/database')
+
 // The 'process.env.PORT' variable lets the port be set by Heroku
 // If not set, use 3000!
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> { console.log("Server ready! Listening on port " + port) })
 
-// Mongoosin'
-let mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/oob');
 
 // Auth0
 const jwt = require('express-jwt')
