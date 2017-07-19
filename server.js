@@ -32,10 +32,10 @@ var jwtCheck = jwt({
 })
 
 // Enable the use of the jwtCheck middleware in all of our routes
-app.use(jwtCheck);
+app.use(jwtCheck)
 
 // If we do not get the correct credentials, we’ll return an appropriate message
-app.use(function (error, request, response) {
+app.use(function (error, request, response, next) {
     if (error.name === 'UnauthorizedError') {
         response.status(401).json({message:'Missing or invalid token'})
     }
