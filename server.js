@@ -22,7 +22,7 @@ app.listen(port, ()=> { console.log("Server ready! Listening on port " + port) }
 // Auth0
 const jwtCheck = require('./config/authorization')
 
-app.use(jwtCheck) // Enable the use of the jwtCheck middleware in all of our routes
+//app.use(jwtCheck) // Enable the use of the jwtCheck middleware in all of our routes
 
 // If we do not get the correct credentials, we’ll return an appropriate message
 app.use(function (error, request, response, next) {
@@ -32,5 +32,5 @@ app.use(function (error, request, response, next) {
 })
 
 // More router fun
-const submissionRouter = require('./api/submission.router')
-app.use('/', submissionRouter)
+app.use('/submissions', require('./api/submission.router'))
+app.use('/users', require('./api/user.router'))
