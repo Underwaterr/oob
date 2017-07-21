@@ -34,3 +34,4 @@ app.use(function (error, request, response, next) {
 // More router fun
 app.use('/submissions', require('./api/submission.router'))
 app.use('/users', require('./api/user.router'))
+app.use('/login', require('./api/login.router'))

@@ -18,7 +18,7 @@ router.get('/', function(request, response) {
     })
 })
 
-router.get('username/:username', function(request, response) {
+router.get('/username/:username', function(request, response) {
     const username = request.params.username
     api.readByUsername(username, function(error, result) {
         if(error) response.send(error)
