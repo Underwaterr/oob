@@ -17,7 +17,7 @@ require('./config/database')
 
 // Auth0
 const jwtCheck = require('./config/authorization')
-//app.use(jwtCheck) // Enable the use of the jwtCheck middleware in all of our routes
+app.use(jwtCheck) // Enable the use of the jwtCheck middleware in all of our routes
 
 // If we do not get the correct credentials, we’ll return an appropriate message
 app.use(function (error, request, response, next) {
