@@ -10,9 +10,10 @@ module.exports = {
         })
     },
 
-    isValidPassword: function(unencryptedPassword, encryptedPassword) {
-        bcrypt.compare(unencryptedPassword, encryptedPassword, function(error, response) {
-            return response
+    checkPassword: function(unencryptedPassword, encryptedPassword, callback) {
+        bcrypt.compare(unencryptedPassword, encryptedPassword, function(error, passwordIsValid) {
+            console.log("Checkin': ", passwordIsValid)
+            callback(passwordIsValid)
         })
     }
 }

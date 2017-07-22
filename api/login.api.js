@@ -1,17 +1,21 @@
-const User = require("./user.model")
 const userApi = require('./user.api')
+const encryption = require('../config/encryption')
 
 module.exports = {
 
-    login: function(username, password, callback) { 
-        let user = new User({
-            username: username,
-            password: password
-        })
-        userApi.readByUsername(username, function(error, result) {
-            if (error) callback(error, result)
-            if (result.password !== password) callback({message: "Wrong password!"}, result)
-            callback(error, result)
+    login: function(username, unencryptedPassword, callback) { 
+        userApi.readByUsername(username, function(error, data) {
+            if(error) throw error
+            if(!data) callback(null, false, {message: "User not found"})
+            let encryptedPassword = data.password
+            encryption.checkPassword(unencryptedPassword, encryptedPassword, function(passwordIsValid) {
+                if(!passwordIsValid) {
+                    callback(null, false, {message: "Wrong password"})
+                }
+                else {
+                    callback(error, data)
+                }
+            })
         })
 
     }
