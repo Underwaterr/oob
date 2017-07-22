@@ -2,16 +2,11 @@ let express = require('express')
 let router = express.Router()
 let api = require('./submission.api')
 
-router.post('/submissionsNew', (request, response)=> {
+router.post('/', (request, response)=> {
     let name = request.body.name
     api.create(name, function(error, result) {
-        if(error) response.send(error)
-        response.json({message: "POST successful", result })
+        response.json(result)
     })
-})
-
-router.post('/', (request, response)=> {
-    api.create(request, response)
 })
 
 router.get('/', (request, response)=> {

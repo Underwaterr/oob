@@ -35,8 +35,6 @@ module.exports = {
 
     destroy: function(id, callback) {
         User.findById(id).exec(function(error, user) {
-            if(error) callback(error, user)
-            if(user == null) callback(error, user)
             user.remove(function(error, result) {
                 callback(error, result)
             })
