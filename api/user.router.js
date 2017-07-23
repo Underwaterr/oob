@@ -6,7 +6,8 @@ let api = require('./user.api')
 router.post('/', function(request, response) {
     let username = request.body.username
     let password = request.body.password
-    api.create(username, password, function(error, result) {
+    let role     = request.body.role
+    api.create(username, password, role, function(error, result) {
         response.json(result)
     })
 })

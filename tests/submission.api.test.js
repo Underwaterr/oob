@@ -3,6 +3,11 @@ let test            = require('tape'),
     mongoose        = require('mongoose'),
     sinonMongoose   = require('sinon-mongoose')
 
+
+// USE THIS
+// https://github.com/thlorenz/proxyquire
+
+
 var api = require('../api/submission.api')
 
 test('I am not a clever man', (t)=> {

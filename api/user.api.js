@@ -3,11 +3,12 @@ let encryption = require('../config/encryption')
 
 module.exports = {
 
-    create: function(username, unencryptedPassword, callback) { 
+    create: function(username, unencryptedPassword, role, callback) { 
         encryption.encryptPassword(unencryptedPassword, function(encryptedPassword) {
             let user = new User({
                 username: username,
-                password: encryptedPassword
+                password: encryptedPassword,
+                role: role
             })
             user.save(function(error, result) {
                 callback(error, result)
