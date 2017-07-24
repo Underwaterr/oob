@@ -24,12 +24,14 @@ module.exports = {
 
     readByUsername: function(username, callback) {
         User.findOne({username: username}).exec(function(error, result) {
+            console.log("OH NO")
             callback(error, result)
         })
     },
 
     readById: function(id, callback) {
         User.findById(id).exec(function(error, result) {
+            console.log("YEAH")
             callback(error, result)
         })
     },

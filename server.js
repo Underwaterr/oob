@@ -28,8 +28,8 @@ app.use(function (error, request, response, next) {
 })
 
 // More router fun
-app.use('/submissions', require('./api/submission.router'))
-app.use('/users', require('./api/user.router'))
+app.use('/', require('./api/submission.router'))
+app.use('/', require('./api/user.router'))
 app.use('/login', require('./api/login.router'))
 app.get('/', function(request,response) {
     response.send("¡Nada que ver aqui!")

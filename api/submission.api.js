@@ -2,9 +2,9 @@ let Submission = require("./submission.model")
 
 module.exports = {
 
-    create: function(name, callback) { 
-        let submission = new Submission({name: name})
-        submission.save(function(error, result) {
+    create: function(submission, callback) { 
+        let submissionModel = new Submission(submission)
+        submissionModel.save(function(error, result) {
             callback(error, result)
         })
     },
@@ -17,6 +17,7 @@ module.exports = {
 
     readById: function(request, response) { 
         const id = request.params.id
+        console.log("Get by ID: ", id)
         Submission.findById(id).exec(function(error, submission) {
             response.json(submission)
         })
