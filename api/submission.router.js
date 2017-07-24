@@ -28,4 +28,12 @@ router.delete('/submission/:id', (request, response)=> {
     api.delete(request, response)
 })
 
+router.post('/review/:submissionId', (request, response)=> {
+    const submissionId = request.params.submissionId
+    const review = request.body
+    api.addReview(submissionId, review, function(error, data) {
+        response.send("YEAH!")
+    })
+})
+
 module.exports = router
