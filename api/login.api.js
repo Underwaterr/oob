@@ -5,7 +5,7 @@ module.exports = {
 
     login: function(username, unencryptedPassword, callback) { 
         userApi.readByUsername(username, function(error, data) {
-            if(!data) callback(null, false, {message: "User not found"})
+            if(!data) return callback(null, false, {message: "User not found"})
             let encryptedPassword = data.password
             encryption.checkPassword(unencryptedPassword, encryptedPassword, function(passwordIsValid) {
                 if(!passwordIsValid) {
