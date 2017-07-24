@@ -44,19 +44,8 @@ module.exports = {
 
     addReview: function(submissionId, review, callback) {
         Submission.findById(submissionId).exec(function(error, submission) {
-            var isUpdate
-            for(var i=0; i<submission.reviews.lenght; i++) {
-                if submission.reviews[i].userId = review.userId {
-                    isUpdate = true
-                    submission.reviews[i] = review
-                }
-            }
-            if (!isUpdate) {
-                submission.reviews.push(review)
-            }
-
-            if (review.userId in submission.reviews) delete submission.reviews[review.userId]
-
+            submission.toObject()
+            submission.reviews.push(review)
             submission.save(function(error, result) {
                 callback(error, result)
             })
