@@ -5,7 +5,9 @@ let api = require('./submission.api')
 router.post('/submission', (request, response)=> {
     let submission = {
         name: request.body.name,
-        videoLinks: request.body.videoLinks
+        description: request.body.description,
+        videoUrls: request.body.videoUrls,
+        videoNotes: request.body.videoNotes
     }
     api.create(submission, function(error, result) {
         response.json(result)
@@ -32,7 +34,7 @@ router.post('/review/:submissionId', (request, response)=> {
     const submissionId = request.params.submissionId
     const review = request.body
     api.addReview(submissionId, review, function(error, data) {
-        response.send("YEAH!")
+        response.json(data)
     })
 })
 

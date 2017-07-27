@@ -4,6 +4,7 @@ let encryption = require('../config/encryption')
 module.exports = {
 
     create: function(username, unencryptedPassword, role, callback) { 
+        console.log(username, unencryptedPassword)
         encryption.encryptPassword(unencryptedPassword, function(encryptedPassword) {
             let user = new User({
                 username: username,

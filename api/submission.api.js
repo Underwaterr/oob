@@ -3,6 +3,7 @@ let Submission = require("./submission.model")
 module.exports = {
 
     create: function(submission, callback) { 
+        console.log(submission)
         let submissionModel = new Submission(submission)
         submissionModel.save(function(error, result) {
             callback(error, result)
@@ -45,7 +46,8 @@ module.exports = {
     addReview: function(submissionId, review, callback) {
         Submission.findById(submissionId).exec(function(error, submission) {
             submission.toObject()
-            submission.reviews.push(review)
+            submission.reviews[review.userId] = { score: review.score, notes: review.notes }
+            submission.markModified('reviews');
             submission.save(function(error, result) {
                 callback(error, result)
             })
